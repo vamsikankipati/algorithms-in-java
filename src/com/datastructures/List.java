@@ -2,7 +2,7 @@ package com.datastructures;
 
 public class List<T> {
 
-	public class Node {
+	private class Node {
 		Item item;
 		Node next;
 
