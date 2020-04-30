@@ -1,4 +1,4 @@
-package com.algorithms;
+package com.algorithms.sort;
 
 public class InsertionSort {
 
@@ -51,6 +51,5 @@ public class InsertionSort {
 		for (int a : ar) {
 			System.out.print(a + " ");
 		}
-
 	}
 }
