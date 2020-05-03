@@ -2,37 +2,31 @@ package com.algorithms.sort;
 
 public class MergeSort {
 
+	public static final int THRESHOLD = 32;
+
 	public static int[] increasing(int[] arr) {
-		int[] result = new int[arr.length];
-		int q = arr.length / 2;
-		System.out.println("q: " + q);
-		int[] left = new int[q];
-		int[] right = new int[q];
-		for (int i = 0; i < q; i++) {
+		if (arr.length <= THRESHOLD) {
+			return InsertionSort.increasing(arr);
+		}
+
+		int len1 = arr.length / 2;
+		int[] left = new int[len1];
+		for (int i = 0; i < len1; i++) {
 			left[i] = arr[i];
 		}
-		int k = 0;
-		for (int j = q; j < arr.length; j++) {
-			right[k] = arr[j];
-			k += 1;
+		int len2 = arr.length - len1;
+		int[] right = new int[len2];
+		for (int i = 0; i < len2; i++) {
+			right[i] = arr[i + len1];
 		}
-		left = InsertionSort.increasing(left);
-		right = InsertionSort.increasing(right);
+		left = increasing(left);
+		right = increasing(right);
 
-		// Printing
-		for (int e : left) {
-			System.out.print(e);
-		}
-		System.out.println("\n");
-		for (int e : right) {
-			System.out.print(e);
-		}
-		System.out.println("\n");
-
+		int[] result = new int[len1 + len2];
 		int i = 0;
 		int j = 0;
 		int s = 0;
-		while ((i < left.length) && (j < right.length)) {
+		while ((i < len1) && (j < len2)) {
 			if (left[i] <= right[j]) {
 				result[s] = left[i];
 				i++;
@@ -42,17 +36,16 @@ public class MergeSort {
 			}
 			s++;
 		}
-		while (i < left.length) {
+		while (i < len1) {
 			result[s] = left[i];
 			i++;
 			s++;
 		}
-		while (j < right.length) {
+		while (j < len2) {
 			result[s] = right[j];
 			j++;
 			s++;
 		}
-
 		return result;
 	}
 
