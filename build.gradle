@@ -1,0 +1,46 @@
+apply plugin: 'java'
+//apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: "groovy"
+
+mainClassName = 'Main'
+
+// tag::repositories[]
+repositories {
+    mavenCentral()
+}
+// end::repositories[]
+
+// tag::jar[]
+jar {
+    baseName = 'algorithms-in-java'
+    version =  '0.1.0'
+    description = "Algorithms implemented in Java and Unit tested by Spock"
+}
+// end::jar[]
+
+// tag::dependencies[]
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    implementation "org.codehaus.groovy:groovy:3.0.6"
+    testCompile platform("org.spockframework:spock-bom:2.0-M4-groovy-3.0")
+    testCompile "org.spockframework:spock-core"
+    testCompile "org.spockframework:spock-junit4"
+}
+// end::dependencies[]
+
+task collectJars(type: Copy) {
+    into "$buildDir/output/lib"
+    from configurations.testRuntime
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+// tag::wrapper[]
+// end::wrapper[]
