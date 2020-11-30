@@ -24,3 +24,7 @@ hs_err_pid*
 
 # Build Files
 build
+
+# Gradle and IDE Files
+.gradle
+.idea
