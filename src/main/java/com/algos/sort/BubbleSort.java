@@ -1,4 +1,4 @@
-package com.algorithms.sort;
+package com.algos.sort;
 
 /**
  * Bubble Sort Algorithm - Simplest one.

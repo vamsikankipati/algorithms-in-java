@@ -1,4 +1,4 @@
-package com.problems;
+package com.algos.problems;
 
 public class GCD {
 	public static int gcd(int a, int b) {
