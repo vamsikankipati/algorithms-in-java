@@ -1,6 +1,6 @@
 package com.algos.search;
 
-public class LinearSearch {
+public class Linear {
 
 	public static int search(int[] arr, int val) {
 		int found = 0;

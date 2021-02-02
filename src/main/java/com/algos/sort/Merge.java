@@ -1,12 +1,12 @@
 package com.algos.sort;
 
-public class MergeSort {
+public class Merge {
 
 	public static final int THRESHOLD = 32;
 
 	public static int[] increasing(int[] arr) {
 		if (arr.length <= THRESHOLD) {
-			return InsertionSort.increasing(arr);
+			return Insertion.increasing(arr);
 		}
 
 		int len1 = arr.length / 2;

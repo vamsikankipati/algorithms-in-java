@@ -1,9 +1,11 @@
-import com.algos.search.LinearSearch
+package com.algos.search
+
+
 import spock.lang.Specification
 
 class LinearSeachTest extends Specification {
 
-    LinearSearch linearSearch
+    Linear linearSearch
 
     def setup() {
         linearSearch = Mock()

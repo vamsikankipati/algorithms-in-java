@@ -24,10 +24,17 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    implementation "org.codehaus.groovy:groovy:3.0.6"
+    implementation 'org.codehaus.groovy:groovy:3.0.6'
+    compile "org.codehaus.groovy:groovy:3.0.7"
     testCompile platform("org.spockframework:spock-bom:2.0-M4-groovy-3.0")
     testCompile "org.spockframework:spock-core"
-    testCompile "org.spockframework:spock-junit4"
+    testCompile "org.spockframework:spock-junit4"  // you can remove this if your code does not rely on old JUnit 4 rules
+
+    // optional dependencies for using Spock
+    testCompile "org.hamcrest:hamcrest-core:2.2"   // only necessary if Hamcrest matchers are used
+    testRuntime "net.bytebuddy:byte-buddy:1.10.10" // allows mocking of classes (in addition to interfaces)
+    testRuntime "org.objenesis:objenesis:3.1"      // allows mocking of classes without default constructor (together with ByteBuddy or CGLIB)
+
 }
 // end::dependencies[]
 

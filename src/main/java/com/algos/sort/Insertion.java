@@ -1,6 +1,6 @@
 package com.algos.sort;
 
-public class InsertionSort {
+public class Insertion {
 
 	/*
 	 * Static method that returns sorted array using insertion sort method in

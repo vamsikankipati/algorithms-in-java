@@ -1,9 +1,9 @@
 package com.algos.sort;
 
 /**
- * Bubble Sort Algorithm - Simplest one.
+ * Simplest one.
  */
-public class BubbleSort {
+public class Bubble {
 
 	public static int[] increasing(int[] arr) {
 		for (int i = 0; i < (arr.length - 1); i++) {
